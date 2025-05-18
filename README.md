@@ -1,78 +1,118 @@
-# WhoIs IP CLI
+# 🌐 WhoIs IP CLI
 
-A cross-platform command-line tool for querying WHOIS and IP geolocation data via public APIs.
+A fast and simple command-line tool to perform WHOIS lookups for IP addresses and domains — directly from your terminal.
 
-## 🔧 Features
+![Go Version](https://img.shields.io/badge/Go-1.20+-blue?logo=go)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
 
-- Lookup WHOIS info for domain names
-- Get geolocation data for IP addresses
-- JSON output support
-- Reverse DNS lookup for IPs
-- CLI flags for version and help
+---
 
-## 📦 Build Instructions
+## ✨ Features
 
+- 🔎 Lookup WHOIS information for IP addresses or domains  
+- ⚡ Super fast response using Go’s built-in networking libraries  
+- 📦 Lightweight CLI with zero external dependencies  
+- 🧠 Intelligent input detection (domain or IP)  
+- 🧪 Clean output format for readability  
+
+---
+
+## 📦 Installation
+
+### Option 1: Go Install (recommended)
+
+```bash
+go install github.com/hadzicni/whois-ip-cli@latest
 ```
-go mod init whois-ip-cli
-go build -o whoiscli.exe ./cmd/whoiscli
+
+Make sure `$GOPATH/bin` is in your `$PATH`.
+
+### Option 2: Manual Build
+
+```bash
+git clone https://github.com/hadzicni/whois-ip-cli.git
+cd whois-ip-cli
+go build -o whois-ip ./cmd/whois-ip
 ```
 
-The executable `whoiscli.exe` will be created in the project root.
+---
 
 ## 🚀 Usage
 
-```
-whoiscli <domain|ip> [flags]
-```
-
-### 🔹 Examples
-
-```
-whoiscli google.com
-whoiscli 8.8.8.8
-whoiscli -json google.com
-whoiscli -json 8.8.8.8
-whoiscli -v
-whoiscli -h
+```bash
+whois-ip [flags] <target>
 ```
 
-## 🧾 Flags
+### Parameters
 
-| Flag    | Description           |
-| ------- | --------------------- |
-| `-json` | Output in JSON format |
-| `-v`    | Show version info     |
-| `-h`    | Show help message     |
+| Parameter        | Description                          | Example                     |
+|------------------|--------------------------------------|-----------------------------|
+| `target`         | IP address or domain to look up      | `whois-ip 8.8.8.8`          |
 
-## 🌍 Global Installation (optional)
+### Flags
 
-To use `whoiscli` from anywhere:
+| Flag             | Description                          | Example                     |
+|------------------|--------------------------------------|-----------------------------|
+| `--help`, `-h`   | Show help message                    | `whois-ip -h`               |
 
-1. Move `whoiscli.exe` to a directory like `C:\Tools\whoiscli\`
-2. Add that directory to your Windows `PATH` environment variable
+---
 
-Then run:
+## 🔧 Examples
 
+WHOIS lookup for an IP address:
+
+```bash
+whois-ip 1.1.1.1
 ```
-whoiscli google.com
+
+WHOIS lookup for a domain:
+
+```bash
+whois-ip example.com
 ```
+
+---
+
+## 🧪 Development
+
+Run the CLI locally during development:
+
+```bash
+go run ./cmd/whois-ip example.com
+```
+
+Run tests:
+
+```bash
+go test ./...
+```
+
+---
 
 ## 📁 Project Structure
 
 ```
-whois-ip-cli/
+.
 ├── cmd/
-│   └── whoiscli/
-│       └── main.go
+│   └── whois-ip/        # CLI command logic
 ├── internal/
-│   └── whois/
-│       ├── ip.go
-│       └── domain.go
-├── go.mod
-├── README.md
-└── LICENSE
+│   └── resolver/        # WHOIS resolution logic
+├── go.mod               # Go module definition
+├── LICENSE              # License file
+└── README.md            # Project documentation
 ```
+
+---
+
+## 👨‍💻 Author
+
+Made with ❤️ by **Nikola Hadzic**
+
+- GitHub: [@hadzicni](https://github.com/hadzicni)
+
+---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
