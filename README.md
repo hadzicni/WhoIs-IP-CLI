@@ -1,8 +1,8 @@
 # 🌐 WhoIs IP CLI
 
-A fast and simple command-line tool to perform WHOIS lookups for IP addresses and domains — directly from your terminal.
+A fast and minimal CLI tool written in Go to fetch **Whois information for domains** and **IP geolocation details** directly from the terminal. Supports JSON output and versioning. Powered by public APIs.
 
-![Go Version](https://img.shields.io/badge/Go-1.20+-blue?logo=go)
+![Go Version](https://img.shields.io/badge/Go-1.24+-blue?logo=go)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
 
@@ -10,20 +10,21 @@ A fast and simple command-line tool to perform WHOIS lookups for IP addresses an
 
 ## ✨ Features
 
-- 🔎 Lookup WHOIS information for IP addresses or domains  
-- ⚡ Super fast response using Go’s built-in networking libraries  
-- 📦 Lightweight CLI with zero external dependencies  
-- 🧠 Intelligent input detection (domain or IP)  
-- 🧪 Clean output format for readability  
+- 🌍 Lookup domain Whois info via `api.whois.vu`
+- 📍 Get IP geolocation and provider info via `ip-api.com`
+- 🔎 Detects input type (IP or domain) automatically
+- 📦 JSON output option for automation or scripting
+- 🧾 Simple flags: `-json`, `-v`, `-h`
+- ⚙️ Written in pure Go with zero dependencies
 
 ---
 
 ## 📦 Installation
 
-### Option 1: Go Install (recommended)
+### Option 1: Go Install
 
 ```bash
-go install github.com/hadzicni/whois-ip-cli@latest
+go install github.com/hadzicni/whois-ip-cli/cmd/whoiscli@latest
 ```
 
 Make sure `$GOPATH/bin` is in your `$PATH`.
@@ -32,84 +33,59 @@ Make sure `$GOPATH/bin` is in your `$PATH`.
 
 ```bash
 git clone https://github.com/hadzicni/whois-ip-cli.git
-cd whois-ip-cli
-go build -o whois-ip ./cmd/whois-ip
+cd whois-ip-cli/cmd/whoiscli
+go build -o whoiscli
 ```
 
 ---
-
 ## 🚀 Usage
 
 ```bash
-whois-ip [flags] <target>
+whoiscli [flags] <domain|ip>
 ```
 
-### Parameters
+### Available Flags
 
-| Parameter        | Description                          | Example                     |
-|------------------|--------------------------------------|-----------------------------|
-| `target`         | IP address or domain to look up      | `whois-ip 8.8.8.8`          |
-
-### Flags
-
-| Flag             | Description                          | Example                     |
-|------------------|--------------------------------------|-----------------------------|
-| `--help`, `-h`   | Show help message                    | `whois-ip -h`               |
+| Flag        | Description                 |
+|-------------|-----------------------------|
+| `-json`     | Output as JSON              |
+| `-v`        | Show version info           |
+| `-h`        | Show help message           |
 
 ---
 
 ## 🔧 Examples
 
-WHOIS lookup for an IP address:
+Check a domain:
 
 ```bash
-whois-ip 1.1.1.1
+whoiscli example.com
 ```
 
-WHOIS lookup for a domain:
+Check an IP address:
 
 ```bash
-whois-ip example.com
+whoiscli 8.8.8.8
 ```
 
----
-
-## 🧪 Development
-
-Run the CLI locally during development:
+Output as JSON:
 
 ```bash
-go run ./cmd/whois-ip example.com
+whoiscli -json example.com
 ```
 
-Run tests:
+Show version:
 
 ```bash
-go test ./...
-```
-
----
-
-## 📁 Project Structure
-
-```
-.
-├── cmd/
-│   └── whois-ip/        # CLI command logic
-├── internal/
-│   └── resolver/        # WHOIS resolution logic
-├── go.mod               # Go module definition
-├── LICENSE              # License file
-└── README.md            # Project documentation
+whoiscli -v
 ```
 
 ---
 
 ## 👨‍💻 Author
 
-Made with ❤️ by **Nikola Hadzic**
-
-- GitHub: [@hadzicni](https://github.com/hadzicni)
+Made by **Nikola Hadzic**  
+GitHub: [@hadzicni](https://github.com/hadzicni)
 
 ---
 
