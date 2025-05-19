@@ -3,7 +3,7 @@
 A fast and minimal CLI tool written in Go to fetch **Whois information for domains** and **IP geolocation details** directly from the terminal. Supports JSON output and versioning. Powered by public APIs.
 
 ![Go Version](https://img.shields.io/badge/Go-1.24+-blue?logo=go)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+![License](https://img.shields.io/badge/license-Apache--2.0-blue)
 ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
 
 ---
