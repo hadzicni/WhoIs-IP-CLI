@@ -29,7 +29,17 @@ go install github.com/hadzicni/whois-ip-cli/cmd/whoiscli@latest
 
 Make sure `$GOPATH/bin` is in your `$PATH`.
 
-### Option 2: Manual Build
+### Option 2: Manual Build (Windows, Linux, macOS)
+
+#### 🪟 Windows (PowerShell oder CMD)
+
+```powershell
+git clone https://github.com/hadzicni/whois-ip-cli.git
+cd whois-ip-cli/cmd/whoiscli
+go build -o whoiscli.exe
+```
+
+#### 🐧 Linux / 🍏 macOS
 
 ```bash
 git clone https://github.com/hadzicni/whois-ip-cli.git
@@ -38,6 +48,7 @@ go build -o whoiscli
 ```
 
 ---
+
 ## 🚀 Usage
 
 ```bash
@@ -46,11 +57,11 @@ whoiscli [flags] <domain|ip>
 
 ### Available Flags
 
-| Flag        | Description                 |
-|-------------|-----------------------------|
-| `-json`     | Output as JSON              |
-| `-v`        | Show version info           |
-| `-h`        | Show help message           |
+| Flag    | Description       |
+| ------- | ----------------- |
+| `-json` | Output as JSON    |
+| `-v`    | Show version info |
+| `-h`    | Show help message |
 
 ---
 
@@ -92,4 +103,3 @@ GitHub: [@hadzicni](https://github.com/hadzicni)
 ## 📄 License
 
 This project is licensed under the Apache License 2.0. See the [LICENSE](./LICENSE) file for details.
-
